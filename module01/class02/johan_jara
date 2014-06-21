@@ -1,0 +1,22 @@
+require 'asciiart'
+
+url= [
+    "https://www.letslearnspanish.co.uk/wp-content/uploads/2014/01/hola111.jpg",
+    "http://i269.photobucket.com/albums/jj43/comentarioshi5/leanyla12copyright/frasesparamsn/01hola_mouse1.jpg",
+    "http://fc08.deviantart.net/fs70/f/2014/088/7/7/hola___te_acuerdas_de_mi__volvi_en_forma_de_paint_by_ladiehuachaca-d7c5wxr.png",
+    "http://m1.paperblog.com/i/201/2013868/omg-dieta-hola-querida-L-WhQJbn.jpeg",
+    "http://www.linuxhispano.net/tira/hola.png",
+    "http://img.xmensajes.com/hola/303.jpg",
+    "http://3.bp.blogspot.com/_xFRiwMp5UwQ/TMleNGXVvzI/AAAAAAAAKR8/geIvf7og6kk/s1600/hola.jpg",
+    "http://3.bp.blogspot.com/-I96uw8Xjysk/UpjlS4NgYeI/AAAAAAAAels/32jhppGtWdU/s400/hola-bonitas-imagenes.gif",
+    "http://www.risasinmas.com/wp-content/uploads/2013/09/Hola-te-llamas-Google.jpg",
+    "http://3.bp.blogspot.com/_xFRiwMp5UwQ/TMleNGXVvzI/AAAAAAAAKR8/geIvf7og6kk/s1600/hola.jpg"
+    ]
+
+    File.open('test.rb','w') do |file|
+        url.each do |url|
+            ascii = AsciiArt.new(x)
+            file.write(ascii.to_ascii_art( width:50 ))
+            2.times { file.write("                   ") }
+        end
+    end
