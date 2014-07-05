@@ -1,7 +1,23 @@
 class Controller
+
+  def initialize(env)
+    @env = env
+  end
+
+  def request
+    @request ||= Rack::Request.new(@env)
+  end
+
+  def params
+    request.params
+  end
+
   def render (action, params = {})
-    controller_name = self.class.name.gsub("Controller", "").downcase
     View.render controller_name, action, params
+  end
+
+  def controller_name
+    self.class.name.gsub("Controller", "").downcase
   end
 
   def default_action
