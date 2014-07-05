@@ -19,3 +19,16 @@
 #   PostController
 
 # ERB  -> Embedded Ruby 
+
+
+
+define_method -> Models 
+class methods -> default_index
+
+instance_eval -> DSL
+
+class_eval    -> ?
+metaklass     -> ?
+
+dynamic_dispatch
+DSL 
