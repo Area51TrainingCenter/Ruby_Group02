@@ -1,9 +1,35 @@
 class Router
-  def self.route(env)
-    _, controller, action, *etc = env["PATH_INFO"].split("/") 
+  def self.route(env, routes_map)
+    @env        = env
+    @path       = env["PATH_INFO"]
+    @routes_map = routes_map 
+
+    if matches_route_map?
+      redirect_to_route
+    else
+      default_redirect
+    end
+  end
+
+  def matched_route?
+    @routes_map.matches?(@path)
+  end
+
+  def redirect_to_route
+    controller_name, action = @routes_map.match_for(@path)
+    controller(controller_name).send(action, {})
+  end
+
+
+  def self.default_redirect(path)
+    _, controller, action, *etc = path.split("/") 
     action   ||= "empty" 
-    klass      = Object.const_get("#{controller.capitalize}Controller")
-    controller = klass.new(env)
+    controller = controller(name).new(@env)
     controller.send(action, etc)
   end
+
+  def controller(name)
+    Object.const_get("#{name.capitalize}Controller")
+  end
+
 end
