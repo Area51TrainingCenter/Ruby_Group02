@@ -3,7 +3,7 @@ require 'rack'
 require_relative 'controller'
 require_relative 'router'
 require_relative 'view'
-
+require_relative 'json_model'
 
 class Nails
 

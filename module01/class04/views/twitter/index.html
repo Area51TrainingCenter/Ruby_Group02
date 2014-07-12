@@ -2,6 +2,6 @@
 
 <ul>
 <% matches.each do |match| %>
-  <li><%= match["home_team"]["goals"] %></li>
+  <li><%= match.home_team.goals %></li>
 <% end %>
 </ul>
