@@ -4,12 +4,32 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    if params[:year]
+      @photos = Photo.search(params)
+    else
+      @photos = Photo.all
+    end
+    @title = "Flickr"
+  end
+
+  def search
+    if params[:terms].present?
+      @photos = Photo.where(title: params[:terms])
+    else
+      @photos = Photo.all
+    end
+    render "index"
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
+  end
+
+  def filter
+    @photo = Photo.find(params[:id])
+    @photo.title = "FILTERED"
+    render "show"
   end
 
   # GET /photos/new
@@ -69,6 +89,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:title)
+      params.require(:photo).permit(:title, :user_ids => [])
     end
 end

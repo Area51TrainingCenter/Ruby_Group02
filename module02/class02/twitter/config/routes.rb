@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
 
-  resources :user_photos
+  get "fotos/(:year(/:month(/:day)))" => "photos#index"
 
+  resources :user_photos
   resources :users
-  resources :photos
+  
+  resources :photos do
+
+    collection do
+      post :search
+      get :search
+    end
+    #/photos/search 
+    member do
+      get :filter
+    end
+    #photos/1/filter
+
+  end
+
+
   resources :tweets
 
   # The priority is based upon order of creation: first created -> highest priority.
