@@ -2,6 +2,8 @@
 
 <ul>
 <% matches.each do |match| %>
-  <li><%= match.home_team.goals %></li>
+  <li>
+  <iframe src="http://tools.fifaguide.com/api/country/<%= player.nation_id %>" ></iframe>
+  </li>
 <% end %>
 </ul>

@@ -8,6 +8,9 @@
 # Product.create
 
 class GithubController < Controller
+
+  default_action :otro
+
   def index( args = {} )
     if params["age"].to_i > 18
       render "index", params: params, repositories: []
