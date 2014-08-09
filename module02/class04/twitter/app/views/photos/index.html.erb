@@ -1,0 +1,12 @@
+<h1><%= @title %> <%= params[:year] %></h1>
+<%= sanitize params[:terms] %>
+<%= form_tag search_photos_path, remote: true do %>
+  <%= text_field_tag "terms" %>
+  <%= submit_tag "Buscar", data: {disable_with: "Enviando..."} %>
+<% end %>
+
+<%= render "table" %>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>
