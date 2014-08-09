@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks" }
+  #get "/sala´cpir" to: redirect("/") 
   get "/perfil" => "home#profile", as: :profile
   get "/backdoor" => "home#backdoor"
   root "home#index"

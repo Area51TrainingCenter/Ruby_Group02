@@ -230,9 +230,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
                             # libro                       # gato 
-  config.omniauth :twitter, 'Mndwp2BQNQjNbU3nr2QtH5GOr', '50AyNVaIt2GV3DiYnPr0alUqPgOWsOCyCXANPgPlBRw8HjiyG7' #, scope: 'user,public_repo'
+  config.omniauth :twitter, "Mndwp2BQNQjNbU3nr2QtH5GOr", '50AyNVaIt2GV3DiYnPr0alUqPgOWsOCyCXANPgPlBRw8HjiyG7' #, scope: 'user,public_repo'
   config.omniauth :facebook, '327982164023394', '0f30735c433a0bed0b58a49689947efb' #, scope: 'user,public_repo'
-  config.omniauth :google, '327982164023394', '0f30735c433a0bed0b58a49689947efb' #, scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

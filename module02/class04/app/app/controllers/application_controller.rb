@@ -6,5 +6,4 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     redirect_to root_path unless session[:current_user]
   end
-
 end
